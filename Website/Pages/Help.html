@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Contoso | Help</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../Style/style.css" />
+    <script src="../PageScripts/help.js"></script>
+
+
+</head>
+<body>
+    <nav>
+        <a href="Home.html" class="nav_logo">Contoso Mortgage</a>
+        <a href="SignIn.html" class="nav_ele">Sign In</a>
+        <a href="About.html" class="nav_ele">About Us</a>
+        <a href="Apply.html" class="nav_ele">Apply for Loan</a>
+        <div class="nav_ele selected">Help</div>
+    </nav>
+
+    <div class="container">
+        <div id="accountContainer" class="col-md-12" style="text-align:center;padding:25px;">
+            <div class="row">
+                <input id="searchInput" type="text" class=" form-control col-md-10" placeholder="Enter Search Term" />
+                <button class="btn btn-primary col-md-2" onclick="getKBArticles()">Search</button>
+            </div>
+            <div class="row">
+                <div id="kbResultsTaget" style="text-align:center;" class="col-md-12"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="col-md-12 mb-4 container">
+        <div class="row" style="text-align:center;">
+            <div class="col-md-3"></div>
+            <div class="col-md-1"> Privacy</div>
+            <div class="col-md-1">Security</div>
+            <div class="col-md-1">About Us</div>
+            <div class="col-md-1">Contact Us</div>
+            <div class="col-md-2">Terms & Agreements</div>
+            <div class="col-md-3"></div>
+        </div>
+    </footer>
+</body>
+</html>

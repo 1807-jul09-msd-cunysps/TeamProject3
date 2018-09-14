@@ -1,0 +1,450 @@
+﻿
+#accountContainer {
+    background-color: #ffffff;
+    height: auto;
+    min-height: 500px;
+    padding: 10px;
+    margin: 100px auto;
+    text-align: center;
+    box-shadow: 5px 5px 5px 5px #dadada;
+}
+
+#accountPanel {
+    position: fixed;
+    z-index: 997;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: auto;
+    min-height: 70%;
+    margin: 8% 25%;
+    background-color: #ffffff;
+}
+
+.account_row {
+    padding-left: 20px;
+    margin: 20px;
+    height: 40px;
+    border-bottom: 2px solid #dadada;
+    text-align:left;
+}
+.animate {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.btn_row {
+    padding-left: 20px;
+    margin-top: 10%;
+}
+body {
+    padding: 70px 0px 0px 0px;
+    margin: 0px;
+    height: auto;
+    background-color: #ffffff;
+}
+
+
+#casePanel {
+    position: fixed;
+    z-index: 997;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: auto;
+    min-height: 70%;
+    margin: 8% 25%;
+    background-color: #484848;
+    color: #ffffff;
+}
+
+div.kb_content > div.col-md-4 
+{
+    width: 90% !important;
+}
+
+#editPanel {
+    position: fixed;
+    z-index: 997;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: auto;
+    min-height: 70%;
+    margin: 5% 25%;
+    background-color: #ffffff;
+    padding: 0px;
+}
+
+#error 
+{
+    position: fixed;
+    z-index: 998;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: auto;
+    min-height: 70%;
+    margin: 8% 25%;
+    background-color: #ffffff;
+}
+form {
+    min-width: 250px;
+    position: absolute;
+    box-shadow: 5px 5px 5px 5px #dadada;
+    height: auto;
+    padding: 25px;
+    background-color: #FFFFFF;
+}
+
+.form_apply {
+    width: 70%;
+    margin: 125px 15% 0px 15%;
+}
+
+.form_sign_in {
+    width: 40%;
+    height: auto;
+    min-height: 400px;
+    margin: 125px 30% 0px 30%;
+}
+
+.fadeInNext {
+    visibility: visible;
+    opacity: 1;
+    margin-left: 15%;
+    transition: visibility 0s 1s, opacity 1s linear;
+}
+
+.fadeOutNext {
+    visibility: hidden;
+    opacity: 0;
+    margin-left: 0px;
+}
+
+.fadeInPrev {
+    visibility: visible;
+    opacity: 1;
+    margin-left: 15%;
+    transition: visibility 0s 1s, opacity 1s linear;
+}
+
+.fadeOutPrev {
+    visibility: hidden;
+    opacity: 0;
+    left: +50px;
+    transition: visibility 0s 1s, opacity 1s linear;
+}
+.file_label {
+    margin: 0px 5px;
+    text-decoration: underline;
+}
+footer {
+    background-color: #484848;
+    height: auto;
+    color: #ffffff;
+    font-size:small;
+    padding-bottom:20px;
+}
+
+#help {
+    width: auto;
+    height: auto;
+    position: absolute;
+    padding: 10px;
+    margin: 300px 15%;
+    box-shadow: 5px 1px 10px #dadada;
+}
+.help_element_invalid {
+    border-bottom: 2px solid #ff0000;
+}
+
+.help_element_valid {
+    border-bottom: 2px solid #4cff00;
+}
+
+.hidden {
+    visibility: hidden;
+}
+.hiddenForm {
+    margin-left: 100%;
+    visibility: hidden;
+    opacity: 0;
+}
+#issuePanel {
+    position: fixed;
+    z-index: 997;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: auto;
+    min-height: 70%;
+    margin: 8% 25%;
+    background-color: #ffffff;
+    padding: 0px;
+}
+
+.kb_content{
+    height: auto;
+    padding-bottom: 15px;
+}
+.kb_loading{
+    margin:auto;
+}
+
+.mortgage_account {
+    cursor: pointer;
+    background-color: #484848;
+    height: auto;
+    min-height: 100px;
+    margin: 10px auto;
+    box-shadow: 5px 5px 5px 5px #dadada;
+    color: #ffffff;
+}
+.mortgage_name{
+    text-align: left;
+    background-color: #484848;
+    color: #ffffff;
+    border-bottom: solid 1px #dadada;
+    font-size: 20px;
+}
+.mortgage_ele {
+    color: #dadada;
+}
+.mortgage_panel_ele {
+    padding: 10px;
+}
+nav {
+    background-color: #484848;
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 999;
+}
+.nav_account_ele {
+    float: left;
+    width: auto;
+    height:auto;
+    margin: 10px;
+}
+.nav_account_ele:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+nav_account_label{
+    margin-left: 40px;
+}
+.nav_account_selected{
+    font-weight:bold;
+}
+.nav_logo {
+    color: #ffffff;
+    font-size: 30px;
+    height: inherit;
+    width: auto;
+    padding: 15px 10px;
+    margin: 0px 10px;
+    text-decoration: none;
+    float: left;
+}
+.nav_ele {
+    color: #ffffff;
+    height: inherit;
+    width: auto;
+    padding: 22px 10px;
+    margin-right: 10px;
+    text-decoration: none;
+    float: right;
+}
+.no_display {
+    display: none;
+}
+.nav_logo:hover, .nav_ele:hover {
+    background-color: gray;
+    color: #ffffff;
+    text-decoration: none;
+
+}
+
+
+.payment_account {
+    cursor: pointer;
+    background-color: #dadada;
+    height: auto;
+    min-height: 100px;
+    margin: 10px auto;
+    box-shadow: 5px 5px 5px 5px #a9a9a9;
+    color: #000000;
+}
+.payment_ele{
+    color: #000000;
+}
+
+#paymentPanel {
+    position: fixed;
+    z-index: 997;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: auto;
+    min-height: 70%;
+    margin: 8% 25%;
+    background-color: #a9a9a9;
+}
+.profile {
+    background-color: #ffffff;
+    height: auto;
+    min-height: 500px;
+    margin: 10px auto;
+    color: #484848;
+}
+.profile_btn {
+    margin: 10px;
+}
+
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+
+.shadow {
+    cursor: pointer;
+    position:fixed;
+    top: 0px;
+    left: 0px;
+    z-index:996;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    background-color: #000000;
+}
+.selected {
+    background-color: #ffffff;
+    color: #484848;
+    border-bottom: 2px solid #484848;
+}
+
+.select_label {
+    margin: 10%;
+    padding: 5%;
+    height: 40%;
+    width: 80%;
+    border-bottom: 2px solid #dadada;
+    box-shadow: 1px 1px 10px #dadada;
+}
+
+.select_label:hover {
+    cursor:pointer;
+    background-color:gray;
+    color: #ffffff;
+    box-shadow: 1px 1px 10px #000000;
+}
+
+.slidebtncontainer {
+    width: auto;
+    height: 40px;
+    position: relative;
+    z-index: 5;
+    margin: 360px auto;
+    text-align: center;
+}
+
+.slidebtn {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    overflow: hidden;
+    margin: 12.5px 5px;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000;
+    box-shadow: 1px 1px 1px 1px #dadada;
+    cursor: pointer;
+}
+
+.slidebtnactive {
+    background-color: #dadada;
+    border-color: #dadada;
+    box-shadow: 1px 1px 1px 1px #000000;
+}
+
+.slideNav {
+    width: 256px;
+    height: 256px;
+    position: relative;
+    z-index: 5;
+    margin-top: 80px;
+    cursor: pointer;
+    align-self: center;
+}
+#slideShow {
+    height: 400px;
+    background-color: #FFFFFF;
+    margin-top: 10px;
+    overflow: hidden;
+    padding:0px;
+}
+.slideShow {
+    background-attachment: fixed;
+    height: auto;
+}
+
+.slide {
+    height: 400px;
+    width: 100%;
+    position: relative;
+}
+
+.slidesMobile {
+    display: none;
+}
+
+.slidesNorm {
+    width: 100%;
+    height: 400px;
+    display: block;
+}
+
+.upload_label {
+    margin-top: 15px;
+    height: 100px;
+    border: solid 1px #dadada;
+}
+
+.validation{
+    color: red;
+}
+
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0) { /*safari and chrome*/
+    select {
+        height: 30px;
+        line-height: 30px;
+        background: #f4f4f4;
+    }
+}
+
+select::-moz-focus-inner { /*Remove button padding in FF*/
+    border: 0;
+    padding: 0;
+}
+
+@-moz-document url-prefix() { /* targets Firefox only */
+    select {
+        padding: 15px 0 !important;
+    }
+}
+
+@media screen\0 { /* IE Hacks: targets IE 8, 9 and 10 */
+    select {
+        height: 30px;
+        line-height: 30px;
+    }
+}

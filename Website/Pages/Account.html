@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Contoso | Account</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../Style/style.css" />
+    <script src="../PageScripts/script.js"></script>
+</head>
+<body onload="checkSession('account')">
+    <nav>
+        <a href="Home.html" class="nav_logo">Contoso Mortgage</a>
+        <div class="nav_ele selected">Account</div>
+        <a href="About.html" class="nav_ele">About Us</a>
+        <a href="Apply.html" class="nav_ele">Apply for Loan</a>
+        <a href="Help.html" class="nav_ele">Help</a>
+    </nav>
+    <div id="accountDropDown"></div>
+
+    <div id="accountMenu" class="hidden" ;>
+        <div id="navAccount">
+            <h2 id="hello" class="nav_account_label"></h2>
+            <ul style="list-style:none;">
+                <li id="mortgage" class="nav_account_ele" onclick="setAccountPage('mortgage')">Mortgages</li>
+                <li id="profile" class="nav_account_ele" onclick="setAccountPage('profile')">My Profile</li>
+                <li id="payment" class="nav_account_ele" onclick="setAccountPage('payment')">Billing</li>
+                <li id="case" class="nav_account_ele" onclick="setAccountPage('case')">Cases</li>
+
+                <li class="nav_account_ele" onclick="signOut()">Sign Out</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="accountContainer" class="col-md-10 mb-4"></div>
+
+    <div id="error" class="no_display"></div>
+    <div id="accountShadow" class="shadow no_display" onclick="showMortgage(false)"></div>
+
+    <div id="accountPanel" class="no_display">
+        <div class="flex-row mortgage_name mortgage_panel_ele">
+            <label class="col-md-11" id="mortgageName">House Mortgage</label>
+            <img src="../Pics/xicon.png" style="height:auto;width:20px;cursor:pointer;" onclick="showMortgage(false)" />
+        </div>
+
+        <div class="row account_row">
+            <div id="accountNumber" class="col-md-4">Account Number:</div>
+            <div id="accountNumberTarget" class="col-md-8">N/A</div>
+        </div>
+        <div class="row account_row">
+            <div id="term" class="col-md-4">Term:</div>
+            <div id="termTarget" class="col-md-8">N/A</div>
+        </div>
+        <div class="row account_row">
+            <div id="loan" class="col-md-4">Loan Amount: </div>
+            <div id="loanTarget" class="col-md-8">N/A</div>
+        </div>
+        <div class="row account_row">
+            <div id="balance" class="col-md-4">Remaining Balance: </div>
+            <div id="balanceTarget" class="col-md-8">N/A</div>
+        </div>
+        <div class="flex-row-reverse btn_row">
+            <button class="btn col-md-3"
+                    onclick="showIssue(true, document.getElementById('mortgageName').innerHTML, document.getElementById('accountNumberTarget').innerHTML)">
+                Report An Issue
+            </button>
+        </div>
+    </div>
+
+    <div id="paymentShadow" class="shadow no_display" onclick="showPayment(false)"></div>
+
+    <div id="paymentPanel" class="no_display">
+        <div class="flex-row mortgage_name mortgage_panel_ele">
+            <label class="col-md-11" id="paymentName">House Mortgage</label>
+            <img src="../Pics/xicon.png" style="height:auto;width:20px;cursor:pointer;" onclick="showPayment(false)" />
+        </div>
+
+        <div class="row account_row">
+            <div id="paymentMortgageNumber" class="col-md-4">Mortgage Number:</div>
+            <div id="paymentMortgageNumberTarget" class="col-md-8">N/A</div>
+        </div>
+        <div class="row account_row">
+            <div id="paymentStatus" class="col-md-4">Status:</div>
+            <div id="paymentStatusTarget" class="col-md-8">N/A</div>
+        </div>
+        <div class="row account_row">
+            <div id="paymentDuedate" class="col-md-4">Due Date: </div>
+            <div id="paymentDuedateTarget" class="col-md-8">N/A</div>
+        </div>
+        <div class="row account_row">
+            <div id="paymentBalance" class="col-md-4">Balance: </div>
+            <div id="paymentBalanceTarget" class="col-md-8">N/A</div>
+        </div>
+
+        <div class="flex-row-reverse btn_row">
+            <button id="paySubmit" class="btn col-md-3">Pay</button>
+            <button class="btn col-md-3">Set Up Payment</button>
+            <img id="paymentLoading" src="../Pics/loading.gif" alt="loading" style="height:40px;width:40px;margin-left:20px;" class="no_display" />
+            <img id="paymentSuccess" src="../Pics/success.png" alt="loading" style="height:40px;width:40px;margin-left:20px;" class="no_display" />
+        </div>
+    </div>
+
+    <div id="issueShadow" class="shadow no_display" onclick="showIssue(false)"></div>
+
+    <form onsubmit="return false;" action="" id="issuePanel" class="no_display" style="padding-bottom:15px;box-shadow:none;">
+        <div class="flex-row mortgage_name mortgage_panel_ele">
+            <label class="col-md-11" style="padding-right: 0px;" id="issueTitle"></label>
+            <img src="../Pics/xicon.png" style="height:auto;width:20px;cursor:pointer;" onclick="showIssue(false)" />
+        </div>
+
+        <div class="row account_row">
+            <div id="issueSubject" class="col-md-4">Mortgage Number:</div>
+            <label class="col-md-8" style="padding:0px;" id="issueMortgageNumber"></label>
+        </div>
+        <div class="row account_row" style="height:auto;padding-bottom: 15px;">
+            <div id="issueSubject" class="col-md-4">Subject:</div>
+            <select id="issueSubjectTarget" class="form-control col-md-8">
+                <option value="Billing" selected>Billing</option>
+                <option value="Flooding">Flooding</option>
+                <option value="WaterWay">Water Way</option>
+                <option value="Enviornmental Management">Enviornmental Management</option>
+                <option value="Other">Other</option>
+            </select>
+
+        </div>
+        <div class="row account_row" style="height: auto;padding-bottom: 15px;">
+            <div id="issueDescription" class="col-md-4">Description:</div>
+            <textarea id="issueDescriptionTarget" class="form-control col-md-8" rows="6"></textarea>
+        </div>
+        <div class="flex-row-reverse btn_row">
+            <button id="back" class="btn col-md-3" onclick="showIssue('back')">Back</button>
+            <button class="btn col-md-3" onclick="issueSubmit()">Submit Case</button>
+            <div id="paymentFeedback" class="btn col-md-1">
+                <img id="issueLoading" src="../Pics/loading.gif" alt="loading" style="height:40px;width:40px;margin-left:0px;" class="no_display" />
+                <img id="issueSuccess" src="../Pics/success.png" alt="success" class="no_display" />
+                <div id="issueValidate" style="margin:25px;" class="col-md-2 validation"></div>
+            </div>
+        </div>
+    </form>
+
+
+    <div id="caseShadow" class="shadow no_display" onclick="showIssue(false)"></div>
+
+    <div id="casePanel" class="no_display">
+        <div class="flex-row mortgage_name mortgage_panel_ele">
+            <label class="col-md-11" id="caseTitle"></label>
+            <img src="../Pics/xicon.png" style="height:auto;width:20px;cursor:pointer;" onclick="showCase(false)" />
+        </div>
+
+        <div class="row account_row">
+            <div id="caseTicketNumber" class="col-md-4">Case Ticket Number:</div>
+            <div id="caseTicketNumberTarget" class="col-md-8">N/A</div>
+        </div>
+        <div class="row account_row" style="height:auto;padding-bottom: 15px;">
+            <div id="caseDescription" class="col-md-4">Description:</div>
+            <div id="caseDescriptionTarget" class="col-md-8">N/A</div>
+        </div>
+        <div class="row account_row">
+            <div id="caseStatusCode" class="col-md-4">Status: </div>
+            <div id="caseStatusCodeTarget" class="col-md-8">N/A</div>
+        </div>
+    </div>
+
+    <div id="editShadow" class="shadow no_display" onclick="showEditPanel(false)"></div>
+
+    <form onsubmit="return false;" action="" id="editPanel" class="no_display" style="padding-bottom:15px;box-shadow:none;">
+        <div class="flex-row mortgage_name mortgage_panel_ele">
+            <label class="col-md-11" style="padding-right: 0px;" id="editProfileName"></label>
+            <img src="../Pics/xicon.png" style="height:auto;width:20px;cursor:pointer;" onclick="showEditPanel(false)" />
+        </div>
+
+        <div class="row account_row" style="padding-bottom:15px;height:auto;">
+            <label class="col-md-4">Email:*</label>
+            <input id="Email" class="form-control col-md-4" type="text" onblur="validate(this)" />
+            <div id="EmailValidate" class="validation col-md-4"></div>
+        </div>
+
+        <div class="row account_row" style="padding-bottom:15px;height:auto;">
+            <label class="col-md-4">Mobile Phone:*</label>
+            <input id="MobilePhone" class="form-control col-md-4" type="text" onblur="validatePhone(this)" />
+            <div id="MobilePhoneValidate" class="validation col-md-4"></div>
+        </div>
+
+
+        <div class="row account_row" style="padding-bottom:15px;height:auto;">
+            <label class="col-md-4">Business Phone:*</label>
+            <input id="BusinessPhone" class="form-control col-md-4" type="text" onblur="validatePhone(this)" />
+            <div id="BusinessPhoneValidate" class="validation col-md-4"></div>
+        </div>
+
+        <div class="row account_row">
+            <div id="editAddressLine1" class="col-md-3">Address Line 1:</div>
+            <label class="col-md-3" style="padding:0px;" id="editAddressLine1Label"></label>
+       
+            <div id="editAddressLine2" class="col-md-3">Address Line 1:</div>
+            <label class="col-md-3" style="padding:0px;" id="editAddressLine2Label"></label>
+        </div>
+
+        <div class="row account_row">
+            <div id="editCity" class="col-md-3">City:</div>
+            <label class="col-md-3" style="padding:0px;" id="editCityLabel"></label>
+
+            <div id="editState" class="col-md-3">State:</div>
+            <label class="col-md-3" style="padding:0px;" id="editStateLabel"></label>
+        </div>
+
+        <div class="row account_row">
+            <div id="editCountry" class="col-md-3">Country:</div>
+            <label class="col-md-3" style="padding:0px;" id="editCountryLabel"></label>
+
+            <div id="editZipCode" class="col-md-3">Postal Code:</div>
+            <label class="col-md-3" style="padding:0px;" id="editZipCodeLabel"></label>
+        </div>
+
+        <div class="flex-row-reverse btn_row">
+            <button class="btn col-md-3" onclick="showEditPanel(false)">Back</button>
+            <button id="editSave" class="btn col-md-3" onclick="editSubmit()">Save</button>
+            <div id="editFeedback" class="btn col-md-1">
+                <img id="editLoading" src="../Pics/loading.gif" alt="loading" style="height:40px;width:40px;margin-left:0px;" class="no_display" />
+                <img id="editSuccess" src="../Pics/success.png" alt="success" class="no_display" />
+            </div>
+        </div>
+
+    </form>
+
+    <footer class="col-md-12 mb-4 container">
+        <div class="row" style="text-align:center;">
+            <div class="col-md-3"></div>
+            <div class="col-md-1"> Privacy</div>
+            <div class="col-md-1">Security</div>
+            <div class="col-md-1">About Us</div>
+            <div class="col-md-1">Contact Us</div>
+            <div class="col-md-2">Terms & Agreements</div>
+            <div class="col-md-3"></div>
+        </div>
+    </footer>
+</body>
+</html>

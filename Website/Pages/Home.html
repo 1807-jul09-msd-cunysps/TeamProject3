@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Contoso | Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="../Style/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="../PageScripts/script.js"></script>
+
+</head>
+<body onload="checkSession('home')">
+    <nav>
+        <a href="Home.html" class="nav_logo">Contoso Mortgage</a>
+        <a id="sign_in" href="SignIn.html" class="nav_ele">Sign In</a>
+        <a id="account" href="Account.html" class="nav_ele no_display">Account</a>
+        <a href="About.html" class="nav_ele">About Us</a>
+        <a href="Apply.html" class="nav_ele">Apply for Loan</a>
+        <a href="Help.html" class="nav_ele">Help</a>
+    </nav>
+    <div id="slideShow" class="col-md-12 mb-4">
+        <div id="slide1" class="slide" style="z-index:4;position:absolute;">
+            <img class="slidesNorm  slide" src="../Pics/slideshow1.png" alt="SUNY Morrisville" style="z-index:1;">
+            <!--<img class="slidesMobile" src="./pics/mslide1.jpg" alt="SUNY Morrisville" class="slide" style="z-index:1;">-->
+        </div>
+
+        <div id="slide2" class="slide" style="z-index:3;position:absolute;">
+            <img class="slidesNorm  slide" src="../Pics/slideshow2.png" alt="New York City" style="z-index:2;">
+            <!--<img class="slidesMobile" src="./pics/mslide2.jpg" alt="New York City" class="slide" style="z-index:2;">-->
+        </div>
+
+        <div id="slide3" class="slide" style="z-index:2;position:absolute;">
+            <img class="slidesNorm  slide" src="../Pics/slideshow3.png" alt="SUNY Oswego" style="z-index:1;">
+            <!--<img class="slidesMobile" src="./pics/mslide3.jpg" alt="SUNY Oswego" class="slide" style="z-index:1;">-->
+        </div>
+
+        <div id="slide4" class="slide" style="z-index:1;position:absolute;">
+            <img class="slidesNorm  slide" src="../Pics/slideshow4.png" alt="Trinidad & Tobago" style="z-index:2;">
+            <!--<img class="slidesMobile" src="./pics/mslide4.jpg" alt="Trinidad & Tobago" class="slide" style="z-index:2;">-->
+        </div>
+
+        <div class="slideNav" id="next" style="float:right;" onclick="slideNext()">
+            <img src="../Pics/next.png" alt="Next Slide" />
+        </div>
+
+        <div class="slideNav" id="prev" style="float:left;" onclick="slidePrev()">
+            <img src="../Pics/prev.png" alt="Previous Slide" />
+        </div>
+
+        <div class="slidebtncontainer">
+            <div id="slidebtn1" class="slidebtn" onclick="slidebtn(1)">
+            </div>
+            <div id="slidebtn2" class="slidebtn" onclick="slidebtn(2)">
+            </div>
+            <div id="slidebtn3" class="slidebtn" onclick="slidebtn(3)">
+            </div>
+            <div id="slidebtn4" class="slidebtn" onclick="slidebtn(4)">
+            </div>
+        </div>
+    </div>
+    <div id="description" class="col-md-12 mb-4" style="text-align:center;"><h1>Everyone has a Dream and we will be happy to lend you a hand in making it a reality.</h1></div>
+    <footer class="col-md-12 container">
+
+        <div class="row">
+            <div class="col-md-12">
+                <p>
+                    Rate Assumptions:
+                    • Contoso mortgage rates may change without notice subject to market conditions.
+                    • Rates and fees are based on an average loan amount of $242,959.12 in the state of NY. Actual fees may vary.
+                    • Loan-to-Value Ratio of 80% for loans up to and including $1.5 million. Loan-to-Value ratio for loans in excess of $1.5 million is 75%.
+                    • Excellent credit - score 780 and above.
+                    • Single Family Primary Residence.
+                    • 60-day lock period.
+                    • Actual interest rate will vary depending upon loan-to-value and credit score.
+                </p>
+                <p>
+                    1 5/1 ARM Loan:
+                    For a 5/1 ARM, the initial fixed rate for the first 60 months will be 4.625, and the monthly payment will be $1,249.15 and is estimated to adjust based upon the sum of the index and margin to 5.093 for the next 12 months and the monthly payment will be $1,309.22. The interest rate may adjust annually thereafter. The monthly payment reflects principal and interest only and does not include taxes and hazard insurance. Your monthly payment may be higher.
+                    <br />
+                    2 10/1 ARM Loan:
+                    For a 10/1 ARM, the initial fixed rate for the first 120 months will be 4.625, and the monthly payment will be $1,249.15 and is estimated to adjust based upon the sum of the index and margin to 5.093 for the next 12 months and the monthly payment will be $1,299.33. The interest rate may adjust annually thereafter. The monthly payment reflects principal and interest only and does not include taxes and hazard insurance. Your monthly payment may be higher.
+                    <br />
+                    3 15 Year Fixed Rate Loan:
+                    The monthly payment for a 15 year mortgage loan is 180 monthly payments of $1,827.73. The monthly payment reflects principal and interest only and does not include taxes and hazard insurance. Your monthly payment may be higher.
+                    <br />
+                    4 30 Year Fixed Rate Loan:
+                    The monthly payment for a 30 year mortgage loan is 360 monthly payments of $1,285.76. The monthly payment reflects principal and interest only and does not include taxes and hazard insurance. Your monthly payment may be higher.
+                    <br />
+                    5 For Surestart, final commitment is subject to verification of information, receipt of satisfactory sales contract on the home you wish to purchase, appraisal and title report, and meeting our customary closing conditions. There is no charge for Surestart pre-approval, but standard application and commitment fees apply.
+                    <br />
+                    ‡ 1/8th Refinance Offer:
+                    Offer available on conforming refinance transactions only. Offer cannot be combined with any other offer and is available only when referencing the Offer Code to your Contoso mortgage representative and must be presented at the time you submit your application. Offer may be modified or withdrawn at any time without notice.
+                    <br />
+                    Terms, conditions and fees for accounts, programs, products and services are subject to change without notice. Offer cannot be combined with any other incentives. Contoso reserves the right to suspend, change and terminate the offers and promotion. This is not a commitment to lend. All loans are subject to credit and property approval. Certain restrictions may apply on all programs. Closing costs credit will be applied at closing.
+
+                </p>
+            </div>
+        </div>
+
+        <div class="row" style="text-align:center;">
+            <div class="col-md-3"></div>
+            <div class="col-md-1"> Privacy</div>
+            <div class="col-md-1">Security</div>
+            <div class="col-md-1">About Us</div>
+            <div class="col-md-1">Contact Us</div>
+            <div class="col-md-2">Terms & Agreements</div>
+            <div class="col-md-3"></div>
+        </div>
+    </footer>
+    <script src="../PageScripts/slideshow.js"></script>
+
+</body>
+</html>

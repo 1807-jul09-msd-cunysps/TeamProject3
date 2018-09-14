@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Contoso | Sign In</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../Style/style.css" />
+    <script src="../PageScripts/script.js"></script>
+    <script src="../PageScripts/apply.js"></script>
+</head>
+<body onload="checkSession('signin')">
+    <nav>
+        <a href="Home.html" class="nav_logo">Contoso Mortgage</a>
+        <div class="nav_ele selected">Sign In</div>
+        <a href="About.html" class="nav_ele">About Us</a>
+        <a href="Apply.html" class="nav_ele">Apply for Loan</a>
+        <a href="Help.html" class="nav_ele">Help</a>
+    </nav>
+
+
+    <form id="formSelect" class="animate form_sign_in" style="z-index:3" onsubmit="return false;" action="">
+        <div style="text-align:center;">
+            <div class="select_label" onclick="selectformSignIn(true)">
+                <h1>Sign In</h1>
+            </div>
+        </div>
+        <div style="text-align:center;">
+            <div class="select_label" onclick="selectformRegister(true)">
+                <h1>Register</h1>
+            </div>
+        </div>
+    </form>
+
+
+    <form id="formSignIn" class="animate form_sign_in hidden" style="z-index:2;" onsubmit="return false;" action="">
+        <div class="form-row">
+            <div class="col-md-12" style="text-align:center;">
+                <h1>Sign In</h1>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-12">
+                <label>User Name:</label>
+                <input id="signInUserName" class="form-control" type="text" value="Johnny" />
+                <div id="signInUserNameValidate" class="validation"></div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-12">
+                <label>Password:</label>
+                <input id="signInPassword" class="form-control" type="password" value="987645123" />
+                <div id="signInPasswordValidate" class="validation"></div>
+            </div>
+        </div>
+        <div class="form-row" style="margin-top:100px;">
+            <div class="col-md-3">
+                <input style="margin:20px;text-align:right;" class="btn btn-primary" type="submit" value="Back" onclick="selectformSignIn(false)" />
+            </div>
+
+            <div class="col-md-6"  style="text-align:center">
+                <img id="signInLoading" src="../Pics/loading.gif" alt="loading" style="height:40px;width:40px;margin-top:20px;" class="no_display" />
+            </div>
+
+            <div class="col-md-3">
+                <input style="margin:20px;text-align:right;" class="btn btn-primary pull-right" type="submit" value="Sign In" onclick="formSignInSubmit('signin')" />
+                <div id="signInSubmitValidate" style="margin:25px;" class="validation"></div>
+            </div>
+        </div>
+    </form>
+
+    <form id="formRegister" class="animate form_sign_in hidden" style="z-index:1;" onsubmit="return false;" action="">
+        <div class="form-row">
+            <div class="col-md-12" style="text-align:center;">
+                <h1>Register</h1>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-12">
+                <label>User Name:</label>
+                <input id="registerUserName" class="form-control" type="text" onblur="validateUserName(this)" />
+                <div id="registerUserNameValidate" class="validation"></div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-12">
+                <label>Password:</label>
+                <input id="registerPassword"
+                       class="form-control"
+                       type="password"
+                       onfocus="showHelp()"
+                       onkeyup="passwordFormat(this)"
+                       onblur="validatePassword(this, document.getElementById('registerPassword2'))" />
+                <div id="registerPasswordValidate" class="validation"></div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-12">
+                <label>Re-Enter Password:</label>
+                <input id="registerPassword2" class="form-control" type="password" onblur="validatePassword(this, document.getElementById('registerPassword'))" value="" />
+                <div id="registerPassword2Validate" class="validation"></div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-12">
+                <label>Mortgage Account Number:</label>
+                <input id="registerMortgageNumber" class="form-control" type="text" onblur="validateMortgage(this)" />
+                <div id="registerMortgageNumberValidate" class="validation"></div>
+            </div>
+        </div>
+        <div class="form-row" style="margin-top:50px;">
+            <div class="col-md-2">
+                <input style="margin:20px;text-align:right;" class="btn btn-primary" type="submit" value="Back" onclick="selectformRegister(false)" />
+                <div id="registerSubmitValidate" style="margin:25px;" class="validation"></div>
+            </div>
+            <div class="col-md-8" style="text-align:center">
+                <img id="registerLoading" src="../Pics/loading.gif" alt="loading" style="height:40px;width:40px;margin-top:20px;" class="no_display" />
+            </div>
+            <div class="col-md-2">
+                <input style="margin:20px -20px;text-align:right;" class="btn btn-primary pull-right" type="submit" value="Register" onclick="formRegisterSubmit()" />
+                <div id="registerSubmitValidate" style="margin:25px;" class="validation"></div>
+            </div>
+        </div>
+    </form>
+
+
+    <div id="help" class="hidden">
+        <ul style="list-style:none;padding:0px;">
+            <li id="length" class="help_element_invalid">length</li>
+            <li id="chars" class="help_element_invalid">character</li>
+            <li id="symbols" class="help_element_invalid">symbol</li>
+            <li id="numbers" class="help_element_invalid">number</li>
+        </ul>
+    </div>
+</body>
+</html>
